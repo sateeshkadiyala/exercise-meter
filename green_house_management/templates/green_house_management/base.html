@@ -1,0 +1,113 @@
+{% load staticfiles %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Green House Management</title>
+    <link href="{% static 'css/AdminLTE.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/skins/skin-blue.min.css' %}" rel="stylesheet">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+      <div class="wrapper">
+
+        <!-- Main Header -->
+        <header class="main-header">
+
+          <!-- Logo -->
+          <a class="logo">
+            <span class="logo-lg"><b>Green House</b></span>
+          </a>
+
+          <!-- Header Navbar -->
+          <nav class="navbar navbar-static-top" role="navigation">
+
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+              <ul class="nav navbar-nav">
+                <li class="dropdown user user-menu">
+
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="hidden-xs">Admin</span>
+                  </a>
+
+                </li>
+                <!-- Control Sidebar Toggle Button -->
+                <li>
+                  <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+
+          <!-- sidebar: style can be found in sidebar.less -->
+          <section class="sidebar">
+            <!-- search form (Optional) -->
+            <form action="#" method="get" class="sidebar-form">
+              <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                  </span>
+              </div>
+            </form>
+            <!-- /.search form -->
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu" data-widget="tree">
+              <li class="active"><a href="plots"><i class="fa fa-link"></i> <span>Plots</span></a></li>
+              <li><a href="devices"><i class="fa fa-link"></i> <span>Devices</span></a></li>
+              <li><a href="media"><i class="fa fa-link"></i> <span>Media</span></a></li>
+            </ul>
+            <!-- /.sidebar-menu -->
+          </section>
+          <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <!-- Main content -->
+          <section class="content container-fluid">
+
+            <div id="content">
+                {% block content %}
+                {% endblock %}
+              </div>
+
+          </section>
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+          <!-- To the right -->
+          <!-- Default to the left -->
+          <strong>Copyright &copy; 2018 <a href="#">METER</a>.</strong> All rights reserved.
+        </footer>
+
+        <div class="control-sidebar-bg"></div>
+      </div>
+  <!-- ./wrapper -->
+
+  <!-- REQUIRED JS SCRIPTS -->
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/adminlte.min.js' %}"></script>
+
+  <!-- Optionally, you can add Slimscroll and FastClick plugins.
+       Both of these plugins are recommended to enhance the
+       user experience. -->
+  </body>
+</html>

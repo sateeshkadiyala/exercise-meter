@@ -1,0 +1,16 @@
+
+{% extends "green_house_management/base.html" %}
+
+{% block content %}
+  My Plots
+  {% for plot in plots %}
+    <h2>
+      <a href="plot/{{plot.id}}">{{ plot.name }}</a>
+    </h2>
+
+    <p class="date">
+      Created {{ plot.created }}
+    </p>
+
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,16 @@
+
+{% extends "green_house_management/base.html" %}
+
+{% block content %}
+  My Devices
+  {% for device in devices %}
+    <h2>
+      <a href="device/{{device.id}}">{{ device.serial }}</a>
+    </h2>
+
+    <p class="date">
+      Created {{ device.created }}
+    </p>
+
+  {% endfor %}
+{% endblock %}

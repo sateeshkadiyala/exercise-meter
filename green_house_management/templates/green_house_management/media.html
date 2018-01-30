@@ -1,0 +1,16 @@
+
+{% extends "green_house_management/base.html" %}
+
+{% block content %}
+  My Media
+  {% for medium in media %}
+    <h2>
+      <a href="medium/{{medium.id}}">{{ medium.name }}</a>
+    </h2>
+
+    <p class="date">
+      Created {{ medium.created }}
+    </p>
+
+  {% endfor %}
+{% endblock %}
