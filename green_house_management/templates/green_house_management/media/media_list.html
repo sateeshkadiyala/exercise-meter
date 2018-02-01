@@ -5,11 +5,11 @@
   My Media
   {% for medium in media %}
     <h2>
-      <a href="{% url 'media_edit' media.id %}">{{ media.name }}</a>
+      <a href="{% url 'media_edit' medium.id %}">{{ medium.name }}</a>
     </h2>
 
-    <p>  <a href="{% url 'media_delete' media.id %}">delete</a>
-     <a href="{% url 'media_edit' media.id %}">edit</a> </p>
+    <p>  <a href="{% url 'media_delete' medium.id %}">delete</a>
+     <a href="{% url 'media_edit' medium.id %}">edit</a> </p>
 
     <p class="date">
       Created {{ media.created }}
