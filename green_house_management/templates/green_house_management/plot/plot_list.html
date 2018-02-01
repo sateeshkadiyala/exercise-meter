@@ -1,0 +1,23 @@
+
+{% extends "green_house_management/base.html" %}
+
+{% block content %}
+  My Plots
+  {% for plot in plots %}
+    <h2>
+      <a href="{% url 'plot_edit' plot.id %}">{{ plot.name }}</a>
+    </h2>
+
+    <p>  <a href="{% url 'plot_delete' plot.id %}">delete</a>
+     <a href="{% url 'plot_edit' plot.id %}">edit</a> </p>
+
+    <p class="date">
+      Created {{ plot.created }}
+    </p>
+
+  {% endfor %}
+
+
+<a href="{% url 'plot_new' %}">New Plot</a>
+
+{% endblock %}

@@ -67,9 +67,10 @@
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu" data-widget="tree">
-              <li class="active"><a href="plots"><i class="fa fa-link"></i> <span>Plots</span></a></li>
-              <li><a href="devices"><i class="fa fa-link"></i> <span>Devices</span></a></li>
-              <li><a href="media"><i class="fa fa-link"></i> <span>Media</span></a></li>
+              <li class="active"><a href="{% url 'plot_list' %}"><i class="fa fa-link"></i> <span>Plots</span></a></li>
+              <li><a href="{% url 'device_list' %}"><i class="fa fa-link"></i> <span>Devices</span></a></li>
+              <li><a href="{% url 'media_list' %}"><i class="fa fa-link"></i> <span>Media</span></a></li>
+              <li><a href="{% url 'plot_setting_list' %}"><i class="fa fa-link"></i> <span>Plot Setting</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
           </section>

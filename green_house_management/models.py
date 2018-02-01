@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.urls import reverse
 from django.contrib.auth.models import User
 # Create your models here.
 
@@ -8,6 +9,9 @@ class Crop(models.Model):
     type = models.CharField(max_length=30)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.type
 
 
 class Device(models.Model):
@@ -19,20 +23,38 @@ class Device(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.serial
+
+    def get_absolute_url(self):
+        return reverse('device_edit', kwargs={'pk': self.pk})
+
 
 class Media(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=20)
     value = models.DecimalField(decimal_places=2, max_digits=4)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('media_edit', kwargs={'pk': self.pk})
+
 
 class Plot(models.Model):
     name = models.CharField(max_length=30)
-    crop_type = models.OneToOneField(Crop, models.SET_NULL, null=True)
+    crop_type = models.ForeignKey(Crop, models.SET_NULL, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('plot_edit', kwargs={'pk': self.pk})
 
 
 class PlotDevice(models.Model):
@@ -42,13 +64,16 @@ class PlotDevice(models.Model):
 
 class PlotSetting(models.Model):
     plot = models.OneToOneField(Plot, on_delete=models.CASCADE)
-    media = models.OneToOneField(Media, on_delete=models.SET_NULL, null=True)
+    media = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True)
     interval = models.PositiveIntegerField(default=1) # default interval set to a minute
     over_saturation = models.PositiveIntegerField(validators=[MaxValueValidator(100), MinValueValidator(1)])
     min_water_content = models.PositiveIntegerField(validators=[MaxValueValidator(100), MinValueValidator(1)])
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('plot_setting_edit', kwargs={'pk': self.pk})
 
 
 class SensorInformation(models.Model):
