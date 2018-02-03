@@ -22,8 +22,8 @@ urlpatterns = [
     url(r'^media/delete/(?P<pk>\d+)$', media_views.MediaDelete.as_view(), name='media_delete'),
 
     # media routes
-    url(r'^plot_setting$', plot_setting_views.PlotSettingList.as_view(), name='plot_setting_list'),
-    url(r'^plot_setting/new$', plot_setting_views.PlotSettingCreate.as_view(), name='plot_setting_new'),
-    url(r'^plot_setting/edit/(?P<pk>\d+)$', plot_setting_views.PlotSettingUpdate.as_view(), name='plot_setting_edit'),
+    url(r'^plot_setting$', plot_setting_views.plot_setting_list, name='plot_setting_list'),
+    url(r'^plot_setting/new$', plot_setting_views.plot_setting_new, name='plot_setting_new'),
+    url(r'^plot_setting/edit/(?P<pk>\d+)$', plot_setting_views.plot_setting_edit, name='plot_setting_edit'),
     url(r'^plot_setting/delete/(?P<pk>\d+)$', plot_setting_views.PlotSettingDelete.as_view(), name='plot_setting_delete'),
 ]

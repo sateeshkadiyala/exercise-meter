@@ -9,6 +9,7 @@ from django.urls import reverse, reverse_lazy
 
 # Create your views here.
 
+
 class MediaListView(ListView):
     queryset = Media.objects.all()
     context_object_name = 'media'
@@ -36,7 +37,6 @@ def plot_detail(request, id):
     return render(request, 'green_house_management/plot_detail.html',
                   {'plot': plot, 'settings': plot_settings, 'crop': None, 'media': media,
                    'devices': devices})
-
 
 def device_detail(request, id):
 

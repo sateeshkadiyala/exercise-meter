@@ -3,9 +3,9 @@
 
 {% block content %}
   My Plots
-  {% for setting in plot_settings %}
+  {% for setting in settings %}
     <h2>
-      <a href="{% url 'plot_setting_edit' setting.plot.id %}">{{ setting.plot.name }}</a>
+      <a href="{% url 'plot_setting_edit' setting.id %}">{{ setting.plot.name }}</a>
     </h2>
 
     <p>  <a href="{% url 'plot_setting_delete' setting.id %}">delete</a>

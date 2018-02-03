@@ -1,4 +1,8 @@
 {% extends "green_house_management/base.html" %}
+{% load render_table from django_tables2 %}
+{% render_table table %}
+{% render_table table_device %}
+
 
 {% block content %}
   Add/Edit Plot

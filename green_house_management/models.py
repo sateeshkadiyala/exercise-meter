@@ -61,6 +61,9 @@ class PlotDevice(models.Model):
     plot = models.ForeignKey(Plot, on_delete=models.CASCADE)
     device = models.ForeignKey(Device, on_delete = models.CASCADE)
 
+    class Meta:
+        unique_together = (("plot", "device"),)
+
 
 class PlotSetting(models.Model):
     plot = models.OneToOneField(Plot, on_delete=models.CASCADE)
@@ -70,7 +73,7 @@ class PlotSetting(models.Model):
     min_water_content = models.PositiveIntegerField(validators=[MaxValueValidator(100), MinValueValidator(1)])
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null = True)
 
     def get_absolute_url(self):
         return reverse('plot_setting_edit', kwargs={'pk': self.pk})
