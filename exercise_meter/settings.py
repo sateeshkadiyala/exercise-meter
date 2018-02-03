@@ -126,4 +126,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 import django_heroku
-django_heroku.configure(locals())
+django_heroku.settings(locals())
