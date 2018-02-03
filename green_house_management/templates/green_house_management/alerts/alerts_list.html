@@ -1,0 +1,28 @@
+
+{% extends "green_house_management/base.html" %}
+
+{% block content %}
+  My Alerts
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Plot</th>
+      <th scope="col">Device</th>
+      <th scope="col">Alert Type</th>
+      <th scope="col">Value Occurred</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for alert in alerts %}
+    <tr>
+        <td>{{ alert.plot }}</td>
+        <td>{{ alert.device }}</td>
+        <td>{{ alert.type }}</td>
+        <td>{{ alert.value }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

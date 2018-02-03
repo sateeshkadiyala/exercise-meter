@@ -80,11 +80,11 @@ class PlotSetting(models.Model):
 
 
 class SensorInformation(models.Model):
-    device = models.ForeignKey(Device, on_delete=models.CASCADE)
-    water_content = models.DecimalField(decimal_places=2, max_digits=4)
-    temparature = models.DecimalField(decimal_places=2, max_digits=4)
-    battery_level = models.DecimalField(decimal_places=2, max_digits=4)
-    created = models.DateTimeField(auto_now_add=True)
+    serial = models.CharField(max_length=30, default="Device_Serial_Missing")
+    water_content = models.PositiveIntegerField()
+    temp = models.PositiveIntegerField()
+    battery_level = models.PositiveIntegerField()
+    measurement_time = models.DateTimeField(auto_now_add=True)
 
 
 class Alert(models.Model):
@@ -97,7 +97,9 @@ class Alert(models.Model):
     )
 
     type = models.CharField(max_length=20, choices=ALERT_TYPES, default=None)
-    value = models.DecimalField(decimal_places=2, max_digits=4)
+    value = models.PositiveIntegerField()
+    plot = models.CharField(max_length=30)
+    device = models.CharField(max_length=30)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:

@@ -5,7 +5,8 @@ from django.shortcuts import render, get_object_or_404
 from ..forms import *
 from django.forms.models import model_to_dict
 import json
-from django.http import Http404
+from django.http import Http404, HttpResponse
+from ..generate_data import *
 
 
 def plot_setting_list(request):
@@ -82,7 +83,6 @@ class PlotSettingUpdate(UpdateView):
     template_name = 'green_house_management/plot_setting/plot_setting_form.html'
 
 
-
 class PlotSettingDelete(DeleteView):
     def get_object(self, queryset=None):
         """ Hook to ensure object is owned by request.user. """
@@ -100,3 +100,10 @@ class PlotSettingDelete(DeleteView):
     model = PlotSetting
     success_url = reverse_lazy('plot_setting_list')
     template_name = 'green_house_management/plot_setting/plot_setting_confirm_delete.html'
+
+
+def generate_new_data(request):
+
+    populate_data()
+
+    return HttpResponse()

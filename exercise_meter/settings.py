@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
-    'green_house_management'
+    'green_house_management',
+    'django_crontab'
 ]
 
 MIDDLEWARE = [
@@ -101,6 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CRONJOBS = [
+    ('*/5 * * * *', 'green_house_management.cron.my_scheduled_job')
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
