@@ -6,7 +6,6 @@ from ..forms import *
 from django.forms.models import model_to_dict
 import json
 from django.http import Http404, HttpResponse
-from ..generate_data import *
 
 
 def plot_setting_list(request):
@@ -102,8 +101,3 @@ class PlotSettingDelete(DeleteView):
     template_name = 'green_house_management/plot_setting/plot_setting_confirm_delete.html'
 
 
-def generate_new_data(request):
-
-    populate_data()
-
-    return HttpResponse()
