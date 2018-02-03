@@ -1,1 +1,1 @@
-gunicorn exercise-meter.wsgi:application --preload --workers 1
+gunicorn exercise-meter.wsgi:application --preload --workers 3
