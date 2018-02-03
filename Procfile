@@ -1,1 +1,1 @@
-web: python project/manage.py collectstatic --noinput; gunicorn --pythonpath project project.wsgi
+web: gunicorn exercise_meter.wsgi --log-file -
