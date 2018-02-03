@@ -1,1 +1,1 @@
-web: gunicorn green_house_management.wsgi --log-file -
+gunicorn exercise-meter.wsgi:application --preload --workers 1
