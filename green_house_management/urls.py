@@ -1,6 +1,8 @@
 from django.urls import path
 from django.conf.urls import url
 from .views import plot_views, device_views, media_views, plot_setting_views, alert_views, generate_new_data
+from django.conf import settings
+
 
 urlpatterns = [
     # plot routes
@@ -29,4 +31,6 @@ urlpatterns = [
 
     url(r'^alerts/list$', alert_views.AlertList.as_view(), name='alert_list'),
     url(r'^newdata$', generate_new_data.generate_new_data, name='generate_new_data'),
+
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 ]
