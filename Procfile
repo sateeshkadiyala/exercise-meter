@@ -1,1 +1,1 @@
-web: gunicorn exercise-meter.wsgi:application --preload --workers 3
+web: gunicorn green_house_management.wsgi --preload --workers 3
