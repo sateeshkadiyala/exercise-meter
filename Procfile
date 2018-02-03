@@ -1,1 +1,1 @@
-web: gunicorn exercise_meter.wsgi --preload --workers 3
+web: gunicorn exercise_meter.wsgi --log-file -
