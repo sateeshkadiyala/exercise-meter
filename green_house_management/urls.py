@@ -32,5 +32,5 @@ urlpatterns = [
     url(r'^alerts/list$', alert_views.AlertList.as_view(), name='alert_list'),
     url(r'^newdata$', generate_new_data.generate_new_data, name='generate_new_data'),
 
-    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    #url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 ]
