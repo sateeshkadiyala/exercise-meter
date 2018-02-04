@@ -3,6 +3,9 @@ from .models import *
 
 
 class PlotSettingForm(forms.ModelForm):
+    """
+    PlotSetting form
+    """
     device = forms.ModelMultipleChoiceField(Device.objects.filter(is_assigned=False))
 
     class Meta:
@@ -12,10 +15,14 @@ class PlotSettingForm(forms.ModelForm):
 
     def save(self, commit=True):
 
+        """
+        save a plot setting form
+        :param commit:
+        :return:
+        """
+
         devices = self.cleaned_data['device']
         plot_id = self.cleaned_data['plot']
-
-        print("printing in the save of the form...")
 
         for device in devices:
             pd = PlotDevice()

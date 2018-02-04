@@ -2,6 +2,7 @@
 {% extends "green_house_management/base.html" %}
 
 {% block content %}
+
   My Plots Settings
   {% for setting in settings %}
     <h2>
@@ -16,7 +17,6 @@
     </p>
 
   {% endfor %}
-
 
 <a href="{% url 'plot_setting_new' %}">New Plot Settting</a>
 

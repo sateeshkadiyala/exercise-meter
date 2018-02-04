@@ -1,6 +1,7 @@
 from django.urls import path
 from django.conf.urls import url
-from .views import plot_views, device_views, media_views, plot_setting_views, alert_views, generate_new_data
+from .views import plot_views, device_views, media_views, \
+    plot_setting_views, alert_views, generate_new_data, sensor_information_views
 from django.conf import settings
 
 
@@ -31,4 +32,5 @@ urlpatterns = [
 
     url(r'^alerts/list$', alert_views.AlertList.as_view(), name='alert_list'),
     url(r'^newdata$', generate_new_data.generate_new_data, name='generate_new_data'),
+    url(r'^sensorinformation$', sensor_information_views.sensor_information, name='sensor_information'),
 ]

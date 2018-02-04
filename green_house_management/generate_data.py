@@ -1,7 +1,7 @@
 from .models import *
-import random
+import random, collections, json, os
 from decimal import Decimal
-
+from bson import json_util
 
 def populate_data():
 
@@ -12,7 +12,7 @@ def populate_data():
         plot_setting = PlotSetting.objects.get(plot=plot)
 
         devices = PlotDevice.objects.filter(plot=plot)
-        print(devices)
+
         for d in devices:
             device = Device.objects.get(id=d.device.id)
             sensor_information = SensorInformation()
@@ -64,6 +64,29 @@ def populate_data():
                 create_alert(type, value, device.serial, plot.name)
 
             sensor_information.save()
+
+
+def download_sensor_data():
+
+    sensor_info = SensorInformation.objects.all()
+    sensor_data = []
+    for info in sensor_info:
+        d = collections.OrderedDict()
+        d['serial'] = info.serial
+        d['water_content'] = info.water_content
+        d['temp'] = info.temp
+        d['battery_level'] = info.battery_level
+        d['measurement_time'] = info.measurement_time.strftime("%s")
+        sensor_data.append(d)
+
+    objects_file = 'sensor_information.json'
+    try:
+        os.remove(objects_file)
+    except OSError:
+        pass
+
+    with open(objects_file, "w") as outfile:
+        json.dump(sensor_data, outfile, indent=4, default=json_util.default)
 
 
 def create_alert(type, value, device_serial, plot):
