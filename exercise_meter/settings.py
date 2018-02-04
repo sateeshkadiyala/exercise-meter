@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@@tkegi4c^b6mwtueoi5fb0*+^06*)3sll)w3)93427mwm+2xb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '.herokuapp.com', '.herokuapp.com/']
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'green_house_management',
     'django_crontab',
-'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
