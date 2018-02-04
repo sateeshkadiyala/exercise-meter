@@ -2,6 +2,9 @@ from .models import *
 import random, collections, json, os
 from decimal import Decimal
 from bson import json_util
+import logging, sys
+
+logger = logging.getLogger(__name__)
 
 def populate_data():
 
@@ -9,61 +12,66 @@ def populate_data():
 
     for plot in plots:
 
-        plot_setting = PlotSetting.objects.get(plot=plot)
+        try:
 
-        devices = PlotDevice.objects.filter(plot=plot)
+            plot_setting = PlotSetting.objects.get(plot=plot)
 
-        for d in devices:
-            device = Device.objects.get(id=d.device.id)
-            sensor_information = SensorInformation()
+            devices = PlotDevice.objects.filter(plot=plot)
 
-            sensor_information.serial = device.serial
+            for d in devices:
+                device = Device.objects.get(id=d.device.id)
+                sensor_information = SensorInformation()
 
-            temp = random.randint(1, 151)
+                sensor_information.serial = device.serial
 
-            sensor_information.temp = temp
+                temp = random.randint(1, 151)
 
-            if temp < 5 :
-                type = "frost"
-                create_alert(type, temp, device.serial, plot.name)
-            if temp > 40 :
-                type = "heat"
-                create_alert(type, temp, device.serial, plot.name)
+                sensor_information.temp = temp
 
-            water_content = random.randint(1, 100)
+                if temp < 5 :
+                    type = "frost"
+                    create_alert(type, temp, device.serial, plot.name)
+                if temp > 40 :
+                    type = "heat"
+                    create_alert(type, temp, device.serial, plot.name)
 
-            sensor_information.water_content = water_content
+                water_content = random.randint(1, 100)
 
-            calculated_water_content = plot_setting.media.value * water_content
+                sensor_information.water_content = water_content
 
-            if calculated_water_content < plot_setting.min_water_content:
+                calculated_water_content = plot_setting.media.value * water_content
 
-                type = "dry"
-                value = plot_setting.media.value * water_content
-                create_alert(type, value, device.serial, plot.name)
+                if calculated_water_content < plot_setting.min_water_content:
 
-            sensor_information.water_content = calculated_water_content
+                    type = "dry"
+                    value = plot_setting.media.value * water_content
+                    create_alert(type, value, device.serial, plot.name)
 
-            if calculated_water_content > plot_setting.over_saturation:
+                sensor_information.water_content = calculated_water_content
 
-                type = "saturation"
+                if calculated_water_content > plot_setting.over_saturation:
 
-                value = plot_setting.media.value * water_content
+                    type = "saturation"
 
-                create_alert(type, value, device.serial, plot.name)
+                    value = plot_setting.media.value * water_content
 
-            battery_level = random.randint(1, 100)
+                    create_alert(type, value, device.serial, plot.name)
 
-            sensor_information.battery_level = battery_level
+                battery_level = random.randint(1, 100)
 
-            if battery_level < 10:
+                sensor_information.battery_level = battery_level
 
-                type = "battery"
-                value = battery_level
+                if battery_level < 10:
 
-                create_alert(type, value, device.serial, plot.name)
+                    type = "battery"
+                    value = battery_level
 
-            sensor_information.save()
+                    create_alert(type, value, device.serial, plot.name)
+
+                sensor_information.save()
+
+        except Exception:
+            logger.error(sys.exc_info())
 
 
 def download_sensor_data():
