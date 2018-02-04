@@ -306,5 +306,187 @@
         "temp": 25,
         "battery_level": 88,
         "measurement_time": "1517710958"
+    },
+    {
+        "serial": "SEN00002",
+        "water_content": 7,
+        "temp": 77,
+        "battery_level": 11,
+        "measurement_time": "1517712654"
+    },
+    {
+        "serial": "SEN00003",
+        "water_content": 10,
+        "temp": 71,
+        "battery_level": 19,
+        "measurement_time": "1517712654"
+    },
+    {
+        "serial": "SEN00002",
+        "water_content": 77,
+        "temp": 35,
+        "battery_level": 62,
+        "measurement_time": "1517712654"
+    },
+    {
+        "serial": "SEN00003",
+        "water_content": 30,
+        "temp": 80,
+        "battery_level": 69,
+        "measurement_time": "1517712654"
+    },
+    {
+        "serial": "SEN00005",
+        "water_content": 40,
+        "temp": 47,
+        "battery_level": 63,
+        "measurement_time": "1517712654"
+    },
+    {
+        "serial": "SEN00006",
+        "water_content": 72,
+        "temp": 71,
+        "battery_level": 22,
+        "measurement_time": "1517712654"
+    },
+    {
+        "serial": "SEN00002",
+        "water_content": 55,
+        "temp": 124,
+        "battery_level": 14,
+        "measurement_time": "1517712667"
+    },
+    {
+        "serial": "SEN00003",
+        "water_content": 76,
+        "temp": 53,
+        "battery_level": 15,
+        "measurement_time": "1517712667"
+    },
+    {
+        "serial": "SEN00002",
+        "water_content": 56,
+        "temp": 79,
+        "battery_level": 63,
+        "measurement_time": "1517712667"
+    },
+    {
+        "serial": "SEN00003",
+        "water_content": 1,
+        "temp": 130,
+        "battery_level": 10,
+        "measurement_time": "1517712667"
+    },
+    {
+        "serial": "SEN00005",
+        "water_content": 89,
+        "temp": 60,
+        "battery_level": 79,
+        "measurement_time": "1517712667"
+    },
+    {
+        "serial": "SEN00006",
+        "water_content": 51,
+        "temp": 115,
+        "battery_level": 62,
+        "measurement_time": "1517712667"
+    },
+    {
+        "serial": "SEN00002",
+        "water_content": 27,
+        "temp": 91,
+        "battery_level": 69,
+        "measurement_time": "1517712839"
+    },
+    {
+        "serial": "SEN00003",
+        "water_content": 63,
+        "temp": 120,
+        "battery_level": 11,
+        "measurement_time": "1517712839"
+    },
+    {
+        "serial": "SEN00002",
+        "water_content": 78,
+        "temp": 109,
+        "battery_level": 28,
+        "measurement_time": "1517712839"
+    },
+    {
+        "serial": "SEN00003",
+        "water_content": 41,
+        "temp": 107,
+        "battery_level": 80,
+        "measurement_time": "1517712839"
+    },
+    {
+        "serial": "SEN00005",
+        "water_content": 53,
+        "temp": 39,
+        "battery_level": 62,
+        "measurement_time": "1517712839"
+    },
+    {
+        "serial": "SEN00006",
+        "water_content": 64,
+        "temp": 66,
+        "battery_level": 24,
+        "measurement_time": "1517712839"
+    },
+    {
+        "serial": "SEN00007",
+        "water_content": 62,
+        "temp": 37,
+        "battery_level": 64,
+        "measurement_time": "1517712839"
+    },
+    {
+        "serial": "SEN00002",
+        "water_content": 54,
+        "temp": 83,
+        "battery_level": 68,
+        "measurement_time": "1517769507"
+    },
+    {
+        "serial": "SEN00003",
+        "water_content": 36,
+        "temp": 24,
+        "battery_level": 3,
+        "measurement_time": "1517769507"
+    },
+    {
+        "serial": "SEN00002",
+        "water_content": 84,
+        "temp": 108,
+        "battery_level": 2,
+        "measurement_time": "1517769507"
+    },
+    {
+        "serial": "SEN00003",
+        "water_content": 58,
+        "temp": 71,
+        "battery_level": 68,
+        "measurement_time": "1517769507"
+    },
+    {
+        "serial": "SEN00005",
+        "water_content": 59,
+        "temp": 14,
+        "battery_level": 87,
+        "measurement_time": "1517769507"
+    },
+    {
+        "serial": "SEN00006",
+        "water_content": 3,
+        "temp": 148,
+        "battery_level": 34,
+        "measurement_time": "1517769507"
+    },
+    {
+        "serial": "SEN00007",
+        "water_content": 45,
+        "temp": 79,
+        "battery_level": 15,
+        "measurement_time": "1517769507"
     }
 ]

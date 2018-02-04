@@ -1,0 +1,59 @@
+{% load staticfiles %}
+
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<html lang="en">
+<head>
+<style>
+#tdStyle
+{
+background-image:url('{% static 'img/greenhouse.jpg' %}');
+background-repeat:no-repeat;
+background-size:100%;
+
+}
+
+.center {
+    height: 100%;
+    position: relative;
+    background-image:url('{% static 'img/greenhouse.jpg' %}');
+    background-repeat:no-repeat;
+    background-size:100%;
+}
+
+.center p {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #f3f9f3;
+    font-size: 48px;
+    font-weight: bold;
+}
+.center a {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+<div class="center">
+  <p>Measure. Automate. Grow.</p>
+  <a type="button" href="{% url 'plot_list' %}"class="btn btn-warning">Let's METER</a>
+</div>
+</body>
+
+</html>

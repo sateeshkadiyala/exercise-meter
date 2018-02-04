@@ -1,13 +1,13 @@
 from django.urls import path
 from django.conf.urls import url
 from .views import plot_views, device_views, media_views, \
-    plot_setting_views, alert_views, generate_new_data, sensor_information_views
+    plot_setting_views, alert_views, generate_new_data, sensor_information_views, index_views
 from django.conf import settings
 
 
 urlpatterns = [
     # plot routes
-    url(r'^$', plot_views.PlotList.as_view(), name='plot_list'),
+    url(r'^$', index_views.index, name='index'),
     url(r'^plots$', plot_views.PlotList.as_view(), name='plot_list'),
     url(r'^plots/new$', plot_views.PlotCreate.as_view(), name='plot_new'),
     url(r'^plots/edit/(?P<pk>\d+)$', plot_views.PlotUpdate.as_view(), name='plot_edit'),

@@ -3,14 +3,12 @@ from django.http import Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 
-def generate_new_data(request):
+def index(request):
 
     """
-    Generate new sensor information
+    Landing view
     :param request:
     :return:
     """
 
-    populate_data()
-
-    return render(request, 'green_house_management/data.html')
+    return render(request, 'green_house_management/index.html')
